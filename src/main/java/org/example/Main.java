@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         boolean active = true;
@@ -66,7 +64,7 @@ public class Main {
                     projectMenu(active_user);
                     break;
                 case 2:
-                    printProjects(active_user);
+                    openProject(active_user);
                     break;
                 case 0:
                     in_projects_menu = false;
@@ -84,13 +82,28 @@ public class Main {
         active_user.UserCreateProject(name_the_project);
     }
 
-    public static void printProjects(User active_user) {
+    public static void openProject(User active_user) {
         Scanner scanner = new Scanner(System.in);
 
         active_user.PrintUserProjects();
         System.out.println("Project to open: ");
         int user_projects_index = scanner.nextInt() - 1;
         active_user.user_projects.get(user_projects_index).ProjectContent();
+        activeProject();
+    }
+
+    public static void activeProject() {
+        Scanner scanner = new Scanner(System.in);
+
+        boolean in_project = true;
+        while (in_project) {
+            System.out.println("Edit. ");
+            int choise = scanner.nextInt();
+            switch (choise) {
+                case 1:
+                    break;
+            }
+        }
     }
 
 }
